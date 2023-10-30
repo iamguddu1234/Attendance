@@ -9,6 +9,8 @@ function SingleUser() {
   const [dateValue, setDateValue] = useState("30/12/2012");
   const [inTimeValue, setInTimeValue] = useState("12.00 Am");
   const [outTimeValue, setOutTimeValue] = useState("12.12 Am");
+  const [aTextValue, setATextValue] = useState("A");
+
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -21,6 +23,8 @@ function SingleUser() {
 
   return (
     <button className={classes.mainData}>
+
+
       <div className={classes.nu}>
         {isEditing ? (
           <input
@@ -32,6 +36,8 @@ function SingleUser() {
           nuValue
         )}
       </div>
+
+
       <div className={classes.date}>
         {isEditing ? (
           <input
@@ -43,6 +49,8 @@ function SingleUser() {
           dateValue
         )}
       </div>
+
+
       <div className={classes.inTime}>
         {isEditing ? (
           <input
@@ -54,6 +62,9 @@ function SingleUser() {
           inTimeValue
         )}
       </div>
+
+
+
       <div className={classes.outTime}>
         {isEditing ? (
           <input
@@ -67,7 +78,15 @@ function SingleUser() {
       </div>
 
       <div className={classes.absent}>
-        <div className={classes.a_text}>A</div>
+        {isEditing ? (
+          <input
+            type="text"
+            value={aTextValue}
+            onChange={(e) => setATextValue(e.target.value)}
+          />
+        ) : (
+          <div className={classes.a_text}>{aTextValue}</div>
+        )}
       </div>
 
       {isEditing ? (
